@@ -1,5 +1,5 @@
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host " ShieldGuard AI - Entorno de Demostracion en Vivo" -ForegroundColor White
+Write-Host " Cautelis IA - Entorno de Demostracion en Vivo" -ForegroundColor White
 Write-Host " Golang Backend (:8080) + Angular Risk Console (:4200)" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
@@ -8,7 +8,16 @@ $root = $PSScriptRoot
 if (-not $root) { $root = (Get-Location).Path }
 
 Write-Host "[1/2] Iniciando Backend en Go (:8080)..." -ForegroundColor Green
-Start-Process powershell -WorkingDirectory "$root\backend" -ArgumentList "-NoExit", "-Command", ".\shieldguard-backend.exe"
+$exe = if (Test-Path "$root\backend\cautelis-ia-backend.exe") {
+    ".\cautelis-ia-backend.exe"
+} elseif (Test-Path "$root\backend\cautelisia-backend.exe") {
+    ".\cautelisia-backend.exe"
+} else {
+    Write-Error "No se encontro el ejecutable en backend. Compila el backend antes de ejecutar."
+    pause
+    exit 1
+}
+Start-Process powershell -WorkingDirectory "$root\backend" -ArgumentList "-NoExit", "-Command", $exe
 
 Start-Sleep -Seconds 2
 

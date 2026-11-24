@@ -1,6 +1,6 @@
-# Consola ShieldGuardAI
+# Consola Cautelis IA
 
-Interfaz Angular del prototipo de gestión de alertas de ShieldGuardAI.
+Interfaz Angular del prototipo de gestión de alertas de Cautelis IA.
 
 ## Desarrollo local
 

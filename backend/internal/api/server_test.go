@@ -6,8 +6,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"shieldguard-backend/internal/engine"
-	"shieldguard-backend/internal/simulator"
+	"cautelis-ia-backend/internal/engine"
+	"cautelis-ia-backend/internal/simulator"
 )
 
 func TestSimulatorMutationEndpointsRequirePost(t *testing.T) {

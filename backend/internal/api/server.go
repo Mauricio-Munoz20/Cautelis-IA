@@ -10,9 +10,9 @@ import (
 	"sync"
 
 	"github.com/gorilla/websocket"
-	"shieldguard-backend/internal/engine"
-	"shieldguard-backend/internal/models"
-	"shieldguard-backend/internal/simulator"
+	"cautelis-ia-backend/internal/engine"
+	"cautelis-ia-backend/internal/models"
+	"cautelis-ia-backend/internal/simulator"
 )
 
 var upgrader = websocket.Upgrader{
@@ -93,7 +93,7 @@ func (s *Server) SetupRoutes() http.Handler {
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]interface{}{
 			"status":  status,
-			"service": "ShieldGuard AI Engine",
+			"service": "Cautelis IA Engine",
 			"persistence": map[string]interface{}{
 				"enabled": enabled,
 				"healthy": healthy,

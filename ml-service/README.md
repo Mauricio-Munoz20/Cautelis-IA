@@ -1,4 +1,4 @@
-# ShieldGuardAI ML service
+# Cautelis IA ML service
 
 Servicio privado opcional de inferencia CatBoost y pipeline de entrenamiento temporal. El primer modelo de demo usa etiquetas sintéticas; su score es exploratorio y no puede interpretarse como probabilidad real de fraude.
 
@@ -37,7 +37,7 @@ python train.py --data .\data\approved_transactions.csv --scope approved_labeled
 - `GET /internal/v1/model-info`
 - `POST /internal/v1/predict` con `{ "features": { ... } }`
 
-El servidor enlaza a `127.0.0.1:8090` por defecto y no implementa autenticación; es una frontera local de prototipo, no una configuración de producción. Go consulta el servicio solo si se configura `SHIELDGUARD_ML_URL`. Si el artefacto no existe o falla la inferencia, la demo conserva su evaluación por reglas y omite la señal ML.
+El servidor enlaza a `127.0.0.1:8090` por defecto y no implementa autenticación; es una frontera local de prototipo, no una configuración de producción. Go consulta el servicio solo si se configura `CAUTELIS_IA_ML_URL`. Si el artefacto no existe o falla la inferencia, la demo conserva su evaluación por reglas y omite la señal ML.
 
 ## Limitaciones
 

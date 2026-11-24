@@ -11,10 +11,10 @@ from features import CATEGORICAL_FIELDS, FEATURE_FIELDS, validate_features
 
 
 ROOT = Path(__file__).parent
-MODEL_PATH = Path(os.getenv("SHIELDGUARD_MODEL", ROOT / "artifacts" / "catboost.cbm"))
-METADATA_PATH = Path(os.getenv("SHIELDGUARD_MODEL_METADATA", ROOT / "artifacts" / "metadata.json"))
-HOST = os.getenv("SHIELDGUARD_ML_ADDR", "127.0.0.1")
-PORT = int(os.getenv("SHIELDGUARD_ML_PORT", "8090"))
+MODEL_PATH = Path(os.getenv("CAUTELIS_IA_MODEL", ROOT / "artifacts" / "catboost.cbm"))
+METADATA_PATH = Path(os.getenv("CAUTELIS_IA_MODEL_METADATA", ROOT / "artifacts" / "metadata.json"))
+HOST = os.getenv("CAUTELIS_IA_ML_ADDR", "127.0.0.1")
+PORT = int(os.getenv("CAUTELIS_IA_ML_PORT", "8090"))
 MODEL = CatBoostClassifier()
 METADATA = {}
 
@@ -45,7 +45,7 @@ def reason_codes(features: dict) -> list[str]:
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "ShieldGuardML/0.1"
+    server_version = "Cautelis IA ML/0.1"
 
     def _json(self, status: int, body: dict) -> None:
         encoded = json.dumps(body).encode("utf-8")
@@ -102,7 +102,7 @@ class Handler(BaseHTTPRequestHandler):
 def main() -> None:
     load_artifact()
     server = ThreadingHTTPServer((HOST, PORT), Handler)
-    print(f"ShieldGuardAI ML service listening on http://{HOST}:{PORT}")
+    print(f"Cautelis IA ML service listening on http://{HOST}:{PORT}")
     print(f"Loaded {METADATA['model_version']} (scope={METADATA['model_scope']})")
     server.serve_forever()
 

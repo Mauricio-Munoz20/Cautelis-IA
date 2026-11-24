@@ -8,13 +8,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"shieldguard-backend/internal/api"
-	"shieldguard-backend/internal/engine"
-	"shieldguard-backend/internal/mlclient"
+	"cautelis-ia-backend/internal/api"
+	"cautelis-ia-backend/internal/engine"
+	"cautelis-ia-backend/internal/mlclient"
 )
 
 func main() {
-	port := os.Getenv("SHIELDGUARD_ADDR")
+	port := os.Getenv("CAUTELIS_IA_ADDR")
 	if port == "" {
 		port = ":8080"
 	}
@@ -24,20 +24,22 @@ func main() {
 	}
 
 	fmt.Println("================================================================")
-	fmt.Println(" ShieldGuard AI — Motor de Prevención de Autofraude Bancario")
+	fmt.Println(" Cautelis IA — Motor de Prevención de Autofraude Bancario")
 	fmt.Println(" Emprendimiento de Alto Impacto | UCN Coquimbo")
 	fmt.Println("================================================================")
 
-	dataPath := os.Getenv("SHIELDGUARD_DATA")
+	dataPath := os.Getenv("CAUTELIS_IA_DATA")
 	if dataPath == "" {
-		dataPath = filepath.Join("data", "shieldguard-state.json")
+		dataPath = filepath.Join("data", "cautelis-ia-state.json")
 	}
 	eng, err := engine.NewPersistentEngine(dataPath)
 	if err != nil {
 		log.Fatalf("Error cargando estado persistente (%s): %v", dataPath, err)
 	}
 	log.Printf("[+] Estado persistente habilitado en: %s", dataPath)
-	if mlURL := os.Getenv("SHIELDGUARD_ML_URL"); mlURL != "" {
+
+	mlURL := os.Getenv("CAUTELIS_IA_ML_URL")
+	if mlURL != "" {
 		eng.SetMLScorer(mlclient.New(mlURL))
 		log.Printf("[+] Shadow scoring ML habilitado en: %s", mlURL)
 	} else {

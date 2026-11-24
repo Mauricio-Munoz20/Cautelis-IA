@@ -1,4 +1,4 @@
-# Guía de Evaluación Rápida — ShieldGuard AI 🛡️
+# Guía de Evaluación Rápida — Cautelis IA
 > **Para uso de Comités Evaluadores, Jurados de Emprendimiento (Corfo / Concursos) y Docencia.**  
 > *Prueba interactiva del prototipo sin necesidad de instalar entornos de desarrollo (sin Node.js, Go ni Python).*
 
@@ -6,7 +6,7 @@
 
 ## 1. Resumen del Proyecto
 
-**ShieldGuard AI** es un prototipo educativo para explorar señales de riesgo en transacciones simuladas y una hipótesis de apoyo a la revisión de reclamos por operaciones no autorizadas. La **Ley 20.009** regula responsabilidades y procedimientos de cancelación de cargos o restitución de fondos bajo condiciones y plazos legales; este prototipo no determina si hubo fraude, no atribuye responsabilidad y no reemplaza esos procedimientos.
+**Cautelis IA** es un prototipo educativo para explorar señales de riesgo en transacciones simuladas y una hipótesis de apoyo a la revisión de reclamos por operaciones no autorizadas. La **Ley 20.009** regula responsabilidades y procedimientos de cancelación de cargos o restitución de fondos bajo condiciones y plazos legales; este prototipo no determina si hubo fraude, no atribuye responsabilidad y no reemplaza esos procedimientos.
 
 * **Alcance de la demo:** las reglas deterministas evalúan transacciones ficticias y permiten cambiar y revertir el estado local de una tarjeta desde la consola. El servicio CatBoost es opcional y solo entrega una señal experimental en sombra. No se conecta a bancos, no autoriza ni rechaza pagos reales y no se ha validado con datos transaccionales reales.
 
@@ -16,7 +16,7 @@
 
 * **Sistema Operativo:** Windows 10 o Windows 11 (64-bit).
 * **Navegador Web:** Chrome, Edge, Firefox, Brave o cualquier navegador moderno.
-* **Instalación requerida:** **NINGUNA** si se distribuye el paquete precompilado completo. El ZIP debe contener `start_demo.bat`, `backend/shieldguard-backend.exe` y `backend/static/` con `index.html`, JavaScript, estilos y favicon. El frontend es servido desde esa carpeta; no está embebido dentro del ejecutable.
+* **Instalación requerida:** **NINGUNA** si se distribuye el paquete precompilado completo. El ZIP debe contener `start_demo.bat`, `backend/cautelis-ia-backend.exe` (o ejecutable Go) y `backend/static/` con `index.html`, JavaScript, estilos y favicon. El frontend es servido desde esa carpeta; no está embebido dentro del ejecutable.
 
 ---
 
@@ -92,7 +92,7 @@ En la parte inferior de la consola encontrarás botones de pruebas para simular 
 ### Paso 5: Comprobación de persistencia local tras reinicio
 1. Cierra la ventana negra de la terminal de Windows para detener el sistema.
 2. Vuelve a ejecutar `start_demo.bat`.
-3. **Resultado esperado:** si el snapshot se guardó y sigue en su ubicación, el backend recupera contadores, perfiles, alertas y estados locales desde `backend/data/shieldguard-state.json`. El guardado usa un archivo temporal y `rename`; esta demo no ofrece garantías de durabilidad ante cualquier fallo de sistema ni sustituye una base de datos con respaldos.
+3. **Resultado esperado:** si el snapshot se guardó y sigue en su ubicación, el backend recupera contadores, perfiles, alertas y estados locales desde `backend/data/cautelis-ia-state.json`. El guardado usa un archivo temporal y `rename`; esta demo no ofrece garantías de durabilidad ante cualquier fallo de sistema ni sustituye una base de datos con respaldos.
 
 ---
 
@@ -103,11 +103,11 @@ En la parte inferior de la consola encontrarás botones de pruebas para simular 
 * **¿El puerto 8080 está ocupado por otra aplicación?**  
   Puedes definir otra dirección en una terminal antes de arrancar:
   ```powershell
-  $env:SHIELDGUARD_ADDR = ":8085"
-  .\shieldguard-backend.exe
+  $env:CAUTELIS_IA_ADDR = ":8085"
+  .\cautelis-ia-backend.exe
   ```
   Y abrir `http://localhost:8085` en tu navegador.
 * **¿Dónde consultar los detalles de la arquitectura y la postulación Corfo?**
   * Arquitectura técnica y modelo ML: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md)
   * Diagnóstico de fondos Start-Up Chile Build 13: [`docs/CORFO-CONVOCATORIAS.md`](docs/CORFO-CONVOCATORIAS.md)
-  * Presentación ejecutiva: `ShieldGuard_AI_Presentacion_Ejecutiva.pptx`
+  * Presentación ejecutiva: `Cautelis IA - Presentación Ejecutiva.pptx`

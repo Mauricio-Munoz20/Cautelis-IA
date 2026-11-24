@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"shieldguard-backend/internal/mlclient"
-	"shieldguard-backend/internal/models"
+	"cautelis-ia-backend/internal/mlclient"
+	"cautelis-ia-backend/internal/models"
 )
 
 type CardProfile struct {
@@ -150,7 +150,7 @@ func (e *Engine) Evaluate(tx *models.Transaction) (*models.RiskScore, *models.Al
 			Score:             100,
 			RiskLevel:         "AUTOFRAUDE_PROBABLE",
 			Confidence:        99,
-			TriggeredRules:    []string{"Tarjeta congelada preventivamente por ShieldGuard AI"},
+			TriggeredRules:    []string{"Tarjeta congelada preventivamente por Cautelis IA"},
 			RecommendedAction: "PROACTIVE_FREEZE",
 		}
 		return score, nil

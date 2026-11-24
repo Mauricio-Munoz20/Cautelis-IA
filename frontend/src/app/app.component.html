@@ -1,8 +1,8 @@
 <main class="workspace">
   <header class="topbar">
-    <a class="brand" href="/" aria-label="ShieldGuardAI inicio">
-      <span class="brand-mark" aria-hidden="true">S</span>
-      <span class="brand-name">ShieldGuard<span>AI</span></span>
+    <a class="brand" href="/" aria-label="Cautelis IA inicio">
+      <img class="brand-logo" src="assets/cautelis_ia_emblem.jpg" alt="Cautelis IA" />
+      <span class="brand-name">Cautelis <span>IA</span></span>
     </a>
 
     <div class="topbar-actions">
@@ -20,7 +20,7 @@
 
   <section class="page-heading">
     <div>
-      <p class="eyebrow">ShieldGuardAI <span>/</span> Consola de riesgo</p>
+      <p class="eyebrow">Cautelis IA <span>/</span> Consola de riesgo</p>
       <h1>Monitor de transacciones</h1>
       <p class="page-description">Revisa señales de riesgo y decide qué hacer con cada alerta.</p>
     </div>
@@ -82,7 +82,6 @@
 
       <ng-template #emptyAlerts>
         <div class="empty-state">
-          <span class="empty-icon" aria-hidden="true">✓</span>
           <strong>Todo en orden</strong>
           <span>No hay alertas activas. El motor sigue revisando transacciones.</span>
         </div>
@@ -195,5 +194,5 @@
   </section>
 
   <div class="toast" *ngIf="actionMessage" role="status">{{ actionMessage }}</div>
-  <footer class="page-footer">ShieldGuardAI · Prototipo de evaluación basado en reglas</footer>
+  <footer class="page-footer">Cautelis IA · Prototipo de evaluación basado en reglas</footer>
 </main>

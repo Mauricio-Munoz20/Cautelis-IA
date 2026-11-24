@@ -24,6 +24,7 @@
 .workspace { max-width: 1440px; margin: 0 auto; padding: 0 40px 28px; }
 .topbar { min-height: 72px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand-logo { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; display: block; }
 .brand-mark { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 9px; color: #fff; background: #173c70; font-size: 17px; font-weight: 800; }
 .brand-name { font-size: 17px; font-weight: 750; letter-spacing: -.45px; }
 .brand-name span { color: var(--blue); }

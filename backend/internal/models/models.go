@@ -18,7 +18,7 @@ type Transaction struct {
 	IsSuspicious bool      `json:"isSuspicious"`
 }
 
-// RiskScore contains the evaluation performed by ShieldGuard AI's behavioral engine
+// RiskScore contains the evaluation performed by Cautelis IA's behavioral engine
 type RiskScore struct {
 	Score             int           `json:"score"`             // 0 to 100%
 	RiskLevel         string        `json:"riskLevel"`         // "NORMAL", "REVISAR", "AUTOFRAUDE_PROBABLE"

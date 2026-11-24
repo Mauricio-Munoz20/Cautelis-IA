@@ -1,4 +1,8 @@
-# ShieldGuardAI - Mauricio Muñoz
+# Cautelis IA - Mauricio Muñoz
+
+<p align="center">
+  <img src="assets/cautelis_ia_logo_horizontal.jpg" alt="Cautelis IA Logo" width="600" />
+</p>
 
 Prototipo demostrativo de una consola para revisar transacciones simuladas, explicar señales de riesgo y probar acciones de congelamiento reversible.
 
@@ -9,10 +13,10 @@ Prototipo demostrativo de una consola para revisar transacciones simuladas, expl
 - **Backend:** servidor Go que expone una API HTTP, transmite eventos por WebSocket y sirve el frontend compilado.
 - **Motor de riesgo:** reglas heurísticas de monto, canal, MCC y ubicación. Conserva un promedio histórico simple para transacciones normales.
 - **Modelo ML experimental opcional:** servicio privado Python/CatBoost con pipeline de generación sintética, entrenamiento temporal e inferencia en sombra. No modifica la decisión del motor de reglas y requiere entrenar un artefacto local. Consulta la [guía del servicio ML](ml-service/README.md).
-- **Persistencia local:** snapshots JSON en `backend/data/shieldguard-state.json` para recuperar perfiles, alertas, últimas 100 transacciones, contadores, congelaciones y estado del simulador después de reiniciar.
+- **Persistencia local:** snapshots JSON en `backend/data/cautelis-ia-state.json` para recuperar perfiles, alertas, últimas 100 transacciones, contadores, congelaciones y estado del simulador después de reiniciar.
 - **Simulador:** genera transacciones normales y permite inyectar tres escenarios de prueba desde la consola.
 - **Frontend:** consola Angular con alertas priorizadas por tarjeta, detalle de señales, congelamiento/reversa y controles del simulador.
-- **Material de presentación:** `ShieldGuard_AI_Presentacion_Ejecutiva.pptx` y su generador `generate_deck.py`.
+- **Material de presentación:** `Cautelis IA - Presentación Ejecutiva.pptx` y su generador `generate_deck.py`.
 - **Referencia separada:** `references/cardflow-playground` es otro proyecto Go; no se compila ni ejecuta como parte de este MVP.
 
 ## Arquitectura y ruta de emprendimiento
@@ -41,7 +45,7 @@ La opción más simple sirve el frontend compilado y la API en `http://localhost
 start_demo.bat
 ```
 
-El script usa `backend/shieldguard-backend.exe` y el backend sirve los archivos de `backend/static/`. Ambos deben estar presentes. Si editas el código, vuelve a compilar el frontend, copiar sus archivos a `backend/static/` y compilar el backend antes de abrir esta opción.
+El script usa `backend/cautelis-ia-backend.exe` y el backend sirve los archivos de `backend/static/`. Ambos deben estar presentes. Si editas el código, vuelve a compilar el frontend, copiar sus archivos a `backend/static/` y compilar el backend antes de abrir esta opción.
 
 Para ejecutar desde el código fuente y usar la recarga de Angular:
 
@@ -60,7 +64,7 @@ Abre `http://localhost:4200`. El frontend de desarrollo se conecta al backend en
 
 ## Entrenar y ejecutar el modelo ML experimental
 
-El servicio ML es opcional. Sin `SHIELDGUARD_ML_URL`, la demo usa únicamente las reglas actuales. La señal CatBoost aparece en el detalle de alertas cuando el servicio responde, pero no cambia el nivel ni la acción operativa.
+El servicio ML es opcional. Sin `CAUTELIS_IA_ML_URL`, la demo usa únicamente las reglas actuales. La señal CatBoost aparece en el detalle de alertas cuando el servicio responde, pero no cambia el nivel ni la acción operativa.
 
 ```powershell
 # Terminal 1: preparar entorno, crear datos ficticios y entrenar
@@ -78,7 +82,7 @@ python service.py
 
 # Terminal 3: iniciar el backend con puntuación en sombra
 cd backend
-$env:SHIELDGUARD_ML_URL = "http://127.0.0.1:8090"
+$env:CAUTELIS_IA_ML_URL = "http://127.0.0.1:8090"
 go run ./cmd/server
 ```
 
@@ -117,20 +121,20 @@ cp -r ../frontend/dist/frontend/browser/* ./static/
 
 ### 3. Compilar el Backend unificado (Go)
 ```powershell
-# En Windows (genera shieldguard-backend.exe):
-go build -o shieldguard-backend.exe ./cmd/server
+# En Windows (genera cautelis-ia-backend.exe):
+go build -o cautelis-ia-backend.exe ./cmd/server
 
 # En Linux / macOS (genera binario ejecutable):
-go build -o shieldguard-backend ./cmd/server
+go build -o cautelis-ia-backend ./cmd/server
 ```
 
 ### 4. Ejecución del binario resultante
 ```powershell
 # En Windows:
-.\shieldguard-backend.exe
+.\cautelis-ia-backend.exe
 
 # En Linux / macOS:
-./shieldguard-backend
+./cautelis-ia-backend
 ```
 Abre tu navegador en `http://localhost:8080`. En tiempo de ejecución basta el backend y `static/`; Node.js solo se necesita para compilar el frontend.
 
@@ -144,7 +148,7 @@ Abre tu navegador en `http://localhost:8080`. En tiempo de ejecución basta el b
 
 El score operativo no es una probabilidad calibrada. Los valores dependen de las reglas y del perfil; no se garantiza que coincidan con cifras de versiones anteriores del pitch. Si se habilita CatBoost, su resultado se conserva como señal experimental en sombra y no se mezcla con las reglas ni con las acciones. El backend guarda un snapshot local después de cada evaluación de transacción y acción sobre tarjetas. Si el archivo no existe, inicia con los perfiles de demostración; si existe pero está dañado o usa una versión desconocida, el servidor se detiene para evitar reemplazar los datos silenciosamente.
 
-El directorio de datos se crea automáticamente dentro de `backend/data`. Puedes cambiar el archivo con la variable `SHIELDGUARD_DATA` (ruta absoluta o relativa al directorio de ejecución del backend). Haz copias de seguridad con el backend detenido. Esta persistencia JSON es adecuada para una demo de una sola instancia; no es una base de datos multiusuario ni está pensada para altas tasas de escritura. Para operar con instituciones y datos reales, se debe migrar a una base transaccional con controles de acceso, copias de seguridad y retención definidos.
+El directorio de datos se crea automáticamente dentro de `backend/data`. Puedes cambiar el archivo con la variable `CAUTELIS_IA_DATA` (ruta absoluta o relativa al directorio de ejecución del backend). Haz copias de seguridad con el backend detenido. Esta persistencia JSON es adecuada para una demo de una sola instancia; no es una base de datos multiusuario ni está pensada para altas tasas de escritura. Para operar con instituciones y datos reales, se debe migrar a una base transaccional con controles de acceso, copias de seguridad y retención definidos.
 
 ## API de demostración
 
@@ -175,6 +179,6 @@ pnpm build
 
 El servidor de demo no implementa autenticación ni autorización bancaria y permite solicitudes de origen cruzado. El proceso escucha en `:8080`, que puede exponerlo en otras interfaces del equipo. Úsalo solo en un entorno local controlado, con datos ficticios; no lo publiques en una red ni lo conectes a tarjetas reales.
 
-Puedes cambiar el puerto de escucha para pruebas locales definiendo `SHIELDGUARD_ADDR` antes de arrancar el backend (por ejemplo, `127.0.0.1:8081`). El frontend unificado usa su mismo origen; `ng serve` en el puerto `4200` se conecta al backend de `8080`.
+Puedes cambiar el puerto de escucha para pruebas locales definiendo `CAUTELIS_IA_ADDR` antes de arrancar el backend (por ejemplo, `127.0.0.1:8081`). El frontend unificado usa su mismo origen; `ng serve` en el puerto `4200` se conecta al backend de `8080`.
 
 Antes de presentar o distribuir el pitch, confirma con el equipo que el nombre de la institución, el año académico y las referencias normativas coincidan entre este README y la presentación.

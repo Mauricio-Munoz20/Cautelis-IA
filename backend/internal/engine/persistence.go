@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"shieldguard-backend/internal/models"
+	"cautelis-ia-backend/internal/models"
 )
 
 const persistenceVersion = 1
@@ -101,7 +101,7 @@ func (e *Engine) persistLocked() error {
 	if err := os.MkdirAll(directory, 0700); err != nil {
 		return e.recordPersistenceError(err)
 	}
-	temporary, err := os.CreateTemp(directory, ".shieldguard-state-*.tmp")
+	temporary, err := os.CreateTemp(directory, ".cautelis-ia-state-*.tmp")
 	if err != nil {
 		return e.recordPersistenceError(err)
 	}

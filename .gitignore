@@ -1,5 +1,5 @@
 # ==============================================================================
-# ShieldGuard AI - .gitignore
+# Cautelis IA - .gitignore
 # ==============================================================================
 
 # Entorno local y variables de entorno (NUNCA commitear credenciales)
@@ -41,7 +41,11 @@
 *.dylib
 *.test
 *.out
-**/shieldguard-backend.exe
+*.zip
+**/*- Copia.pptx
+**/*- Archivo anterior.pptx
+**/cautelis-ia-backend.exe
+**/cautelisia-backend.exe
 
 # ------------------------------------------------------------------------------
 # Entornos Virtuales y Caches de Python
@@ -68,7 +72,7 @@
 # ------------------------------------------------------------------------------
 **/backend/data/
 **/data/
-**/.shieldguard-state-*.tmp
+**/.cautelis-ia-state-*.tmp
 tmp/
 **/tmp/
 *.log

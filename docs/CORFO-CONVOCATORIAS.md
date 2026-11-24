@@ -1,4 +1,4 @@
-# Convocatorias Corfo vigentes y ajuste a ShieldGuard AI
+# Convocatorias Corfo vigentes y ajuste a Cautelis IA
 
 **Corte de revisión:** 13 de noviembre de 2026 (hora Chile)  
 **Alcance:** revisión focalizada, no exhaustiva, de convocatorias nacionales Start-Up Chile y algunos instrumentos mencionados como posibles alternativas. La vigencia y elegibilidad corresponden al corte indicado; antes de postular hay que revisar las bases oficiales y comprobar que el llamado siga abierto.
@@ -12,7 +12,7 @@
 * **Plazo de postulación:** Abierta del **3 al 24 de noviembre de 2026 hasta las 13:00 hrs**. (Quedan 11 días para el cierre).
 * **Beneficio:** Subsidio de cofinanciamiento de **hasta 90%** con tope de **CLP $15 millones**.
 * **Elegibilidad resumida:** Personas naturales chilenas o extranjeras mayores de 18 años que sean fundadoras o socias de una persona jurídica extranjera que ejecute un proyecto global de base tecnológica usando Chile como plataforma; o personas jurídicas con fines de lucro constituidas en Chile cuyo inicio de actividades ante el SII no supere 12 meses a la fecha de apertura. Esta síntesis no reemplaza las bases ni confirma la elegibilidad del equipo.
-* **Ajuste con ShieldGuard AI:** **Potencialmente alto por etapa**, sujeto a validar la propuesta, el equipo y las bases:
+* **Ajuste con Cautelis IA:** **Potencialmente alto por etapa**, sujeto a validar la propuesta, el equipo y las bases:
   * El objetivo de avanzar de idea/prototipo a MVP y validar el emprendimiento parece alinearse con el estado del demo.
   * Un piloto y la obtención de datos autorizados podrían ser hitos propuestos, pero no son beneficios asegurados por la convocatoria.
   * La elegibilidad de costos de datos, nube, ciberseguridad y asesoría debe confirmarse en las bases y con Corfo; no asumir que todos serán financiables.
@@ -22,7 +22,7 @@
 
 ## 2. Comparativa de convocatorias nacionales abiertas (Ventana BIG 13)
 
-| Convocatoria | Plazo / Beneficio | Diagnóstico para ShieldGuard AI |
+| Convocatoria | Plazo / Beneficio | Diagnóstico para Cautelis IA |
 |---|---|---|
 | **Start-Up Chile Build 13** | 03–24 nov 2026, 13:00 hrs.<br>Hasta 90%, tope CLP $15M. | **RECOMENDADA (Mejor match).** Diseñada exactamente para pasar de prototipo/MVP a validación técnica y comercial. |
 | **Start-Up Chile Ignite 13** | 03–24 nov 2026, 13:00 hrs.<br>Hasta 80% (90% para proyectos liderados por mujer según las condiciones de la convocatoria), tope CLP $30M. | **No parece el ajuste prioritario por la etapa conocida.** Está orientada a consolidación y escalamiento; revisar bases y evidencia de validación antes de descartarla. |

@@ -46,7 +46,7 @@ export class RiskStreamService {
       this.socket = new WebSocket(this.wsUrl);
 
       this.socket.onopen = () => {
-        console.log('[ShieldGuard] WebSocket conectado a motor Go');
+        console.log('[Cautelis IA] WebSocket conectado a motor Go');
         this.isConnectedSubject.next(true);
       };
 
@@ -55,21 +55,21 @@ export class RiskStreamService {
           const msg = JSON.parse(event.data);
           this.handleIncomingMessage(msg);
         } catch (e) {
-          console.error('[ShieldGuard] Error parseando mensaje WS:', e);
+          console.error('[Cautelis IA] Error parseando mensaje WS:', e);
         }
       };
 
       this.socket.onclose = () => {
-        console.log('[ShieldGuard] WebSocket desconectado. Reintentando en 3s...');
+        console.log('[Cautelis IA] WebSocket desconectado. Reintentando en 3s...');
         this.isConnectedSubject.next(false);
         setTimeout(() => this.connect(), 3000);
       };
 
       this.socket.onerror = (error) => {
-        console.warn('[ShieldGuard] WebSocket error (Go backend offline?):', error);
+        console.warn('[Cautelis IA] WebSocket error (Go backend offline?):', error);
       };
     } catch (err) {
-      console.error('[ShieldGuard] Excepción conectando socket:', err);
+      console.error('[Cautelis IA] Excepción conectando socket:', err);
     }
   }
 

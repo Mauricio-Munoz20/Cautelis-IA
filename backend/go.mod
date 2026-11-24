@@ -1,4 +1,4 @@
-module shieldguard-backend
+module cautelis-ia-backend
 
 go 1.26.5
 

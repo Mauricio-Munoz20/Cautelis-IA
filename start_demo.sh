@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 echo "================================================================"
-echo " ShieldGuard AI — Entorno de Demostracion en Vivo (Bash)"
+echo " Cautelis IA — Entorno de Demostracion en Vivo (Bash)"
 echo " Golang Backend (:8080) + Angular Risk Console (:4200)"
 echo "================================================================"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "[1/2] Iniciando Backend en Go (:8080)..."
-cmd.exe /c start cmd /k "cd /d $DIR\\backend && shieldguard-backend.exe"
+if [ -f "$DIR/backend/cautelis-ia-backend.exe" ]; then
+    cmd.exe /c start cmd /k "cd /d $DIR\\backend && cautelis-ia-backend.exe"
+else
+    echo "No se encontro backend/cautelis-ia-backend.exe. Compila el backend antes de ejecutar la demo."
+    exit 1
+fi
 
 sleep 2
 

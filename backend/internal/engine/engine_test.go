@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"shieldguard-backend/internal/mlclient"
-	"shieldguard-backend/internal/models"
+	"cautelis-ia-backend/internal/mlclient"
+	"cautelis-ia-backend/internal/models"
 )
 
 type fixedScorer struct {

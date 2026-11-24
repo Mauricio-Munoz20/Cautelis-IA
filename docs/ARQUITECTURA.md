@@ -1,11 +1,11 @@
-# Arquitectura de ShieldGuardAI
+# Arquitectura de Cautelis IA
 
 **Estado del documento:** arquitectura actual e integración experimental  
 **Actualizado:** 13 de noviembre de 2026
 
 ## Resumen ejecutivo
 
-ShieldGuardAI es hoy una demo educativa de una consola antifraude: Angular 18 presenta eventos simulados; un backend Go aplica reglas deterministas, transmite eventos por WebSocket y persiste el estado en un archivo JSON local. Se implementó un servicio CatBoost experimental opcional y se entrenó localmente con datos sintéticos para comprobar el pipeline; ese artefacto local no está versionado ni representa rendimiento antifraude real. No existe integración bancaria.
+Cautelis IA es hoy una demo educativa de una consola antifraude: Angular 18 presenta eventos simulados; un backend Go aplica reglas deterministas, transmite eventos por WebSocket y persiste el estado en un archivo JSON local. Se implementó un servicio CatBoost experimental opcional y se entrenó localmente con datos sintéticos para comprobar el pipeline; ese artefacto local no está versionado ni representa rendimiento antifraude real. No existe integración bancaria.
 
 La evolución conserva Go como API y orquestador. El servicio de inferencia privado en Python con CatBoost, la canalización offline de entrenamiento/evaluación y la conexión opcional desde Go ya están implementados. Se ejecutaron con 12.000 filas sintéticas. El modelo propone una señal exploratoria y motivos; las reglas actuales determinan la acción. PostgreSQL y almacenamiento transaccional siguen pendientes para una futura operación multiusuario.
 
@@ -29,7 +29,7 @@ flowchart LR
 - **Evaluación de riesgo:** reglas de monto, canal, MCC, ubicación y estado de tarjeta; no es ML.
 - **Simulación:** genera transacciones y permite inyectar escenarios definidos para la demo.
 - **Persistencia:** snapshot JSON local para perfiles, transacciones, alertas y acciones. Es de una instancia y no ofrece transacciones concurrentes ni almacenamiento multiusuario.
-- **ML opcional:** `ml-service/` contiene contrato de variables, generador sintético, entrenamiento temporal y servidor HTTP CatBoost; Go lo consulta si se configura `SHIELDGUARD_ML_URL`. La respuesta se adjunta como `mlPrediction` y se muestra solo en el detalle de alertas.
+- **ML opcional:** `ml-service/` contiene contrato de variables, generador sintético, entrenamiento temporal y servidor HTTP CatBoost; Go lo consulta si se configura `CAUTELIS_IA_ML_URL`. La respuesta se adjunta como `mlPrediction` y se muestra solo en el detalle de alertas.
 - **Despliegue de demo:** un binario Go y frontend estático; `start_demo` inicia el servidor local.
 
 ### Límites actuales
@@ -123,7 +123,7 @@ Sustituir el snapshot JSON por PostgreSQL administrado con copias de seguridad; 
 
 1. **Contrato y datos:** fijar la etiqueta, diccionario de variables, origen permitido y controles de fuga.
 2. **Baseline académico:** usar una métrica estándar que agrupe empates; separar temporalmente entrenamiento, validación y test final; usar solo validación para early stopping, reservar test sin tocarlo, comparar regresión logística con CatBoost y generar métricas y ejemplos explicables.
-3. **Integración de demo (implementada):** habilitar el endpoint interno de scoring mediante `SHIELDGUARD_ML_URL`; mantener separado el resultado de reglas y el del modelo.
+3. **Integración de demo (implementada):** habilitar el endpoint interno de scoring mediante `CAUTELIS_IA_ML_URL`; mantener separado el resultado de reglas y el del modelo.
 4. **Validación:** usar partición temporal y revisión de falsos positivos; calibrar y definir umbrales junto con el usuario operacional.
 5. **Piloto:** obtener socio, autorización de datos y pruebas controladas antes de afirmar resultados bancarios o permitir que el modelo influya en acciones.
 

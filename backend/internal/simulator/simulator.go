@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	"shieldguard-backend/internal/engine"
-	"shieldguard-backend/internal/models"
+	"cautelis-ia-backend/internal/engine"
+	"cautelis-ia-backend/internal/models"
 )
 
 type OnTransactionCallback func(tx *models.Transaction, score *models.RiskScore, alert *models.Alert)

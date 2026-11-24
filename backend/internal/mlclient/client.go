@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"shieldguard-backend/internal/models"
+	"cautelis-ia-backend/internal/models"
 )
 
 type Features struct {

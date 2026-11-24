@@ -108,7 +108,7 @@ def build_deck(output_path):
     tf_main = tx_main.text_frame
     tf_main.word_wrap = True
     p_t1 = tf_main.paragraphs[0]
-    p_t1.text = "ShieldGuard AI"
+    p_t1.text = "Cautelis IA"
     p_t1.font.size = Pt(44)
     p_t1.font.bold = True
     p_t1.font.color.rgb = TEXT_WHITE
@@ -210,13 +210,13 @@ def build_deck(output_path):
     p.space_before = Pt(8)
 
     p = tf_v.add_paragraph()
-    p.text = "❌ Hipótesis inicial: SDK intrusivo instalado dentro de la app móvil del banco (rechazado por fricción de usuario, consumo de batería y brechas de privacidad)."
+    p.text = "Hipótesis inicial: SDK intrusivo instalado dentro de la app móvil del banco (rechazado por fricción de usuario, consumo de batería y brechas de privacidad)."
     p.font.size = Pt(10.5)
     p.font.color.rgb = RGBColor(252, 165, 165)
     p.space_before = Pt(8)
 
     p = tf_v.add_paragraph()
-    p.text = "✔ Solución validada: Motor de inferencia Machine Learning operando directamente en el Backend del banco sobre el flujo transaccional."
+    p.text = "Solución validada: Motor de inferencia Machine Learning operando directamente en el Backend del banco sobre el flujo transaccional."
     p.font.size = Pt(10.5)
     p.font.color.rgb = RGBColor(134, 239, 172)
     p.space_before = Pt(8)
@@ -291,7 +291,7 @@ def build_deck(output_path):
     p.space_before = Pt(2)
 
     p = tf_auto.add_paragraph()
-    p.text = "Aplicación directa en ShieldGuard AI:"
+    p.text = "Aplicación directa en Cautelis IA:"
     p.font.size = Pt(11)
     p.font.bold = True
     p.font.color.rgb = TEXT_WHITE
@@ -304,7 +304,7 @@ def build_deck(output_path):
     ]
     for h, desc in auto_points:
         p = tf_auto.add_paragraph()
-        p.text = "✔ " + h + " " + desc
+        p.text = "" + h + " " + desc
         p.font.size = Pt(10)
         p.font.color.rgb = TEXT_MUTED
         p.space_before = Pt(6)
@@ -355,7 +355,7 @@ def build_deck(output_path):
     # ==========================================
     s5 = prs.slides.add_slide(blank_layout)
     set_slide_background(s5)
-    add_header(s5, "04. Análisis Competitivo & Valor Diferencial", "¿Por Qué Elegir ShieldGuard AI?", "05 / 12")
+    add_header(s5, "04. Análisis Competitivo & Valor Diferencial", "¿Por Qué Elegir Cautelis IA?", "05 / 12")
 
     # Left Card: Status Quo
     c_sq = create_card(s5, 0.8, 1.6, 5.7, 4.2, BG_CARD, BG_CARD_BORDER)
@@ -376,18 +376,18 @@ def build_deck(output_path):
     ]
     for b_title, b_desc in sq_bullets:
         p = tf_sq.add_paragraph()
-        p.text = "✖ " + b_title + b_desc
+        p.text = "" + b_title + b_desc
         p.font.size = Pt(10)
         p.font.color.rgb = RGBColor(252, 165, 165)
         p.space_before = Pt(8)
 
-    # Right Card: ShieldGuard Approach
+    # Right Card: Cautelis IA Approach
     c_sg = create_card(s5, 6.8, 1.6, 5.7, 4.2, BG_CARD, PRIMARY_BLUE)
     tf_sg = c_sg.text_frame
     tf_sg.margin_left = tf_sg.margin_right = tf_sg.margin_top = Inches(0.35)
     
     p = tf_sg.paragraphs[0]
-    p.text = "ENFOQUE SHIELDGUARD AI"
+    p.text = "ENFOQUE CAUTELIS IA"
     p.font.size = Pt(12)
     p.font.bold = True
     p.font.color.rgb = ACCENT_GREEN
@@ -400,7 +400,7 @@ def build_deck(output_path):
     ]
     for b_title, b_desc in sg_bullets:
         p = tf_sg.add_paragraph()
-        p.text = "✔ " + b_title + b_desc
+        p.text = "" + b_title + b_desc
         p.font.size = Pt(10)
         p.font.color.rgb = RGBColor(187, 247, 208)
         p.space_before = Pt(8)
@@ -459,7 +459,7 @@ def build_deck(output_path):
     tf_mk.margin_left = tf_mk.margin_right = tf_mk.margin_top = Inches(0.25)
     
     p = tf_mk.paragraphs[0]
-    p.text = "🖥 app.shieldguard.ai/risk — Consola de Riesgo (Demo LIVE)"
+    p.text = "app.cautelis-ia.cl/risk — Consola de Riesgo (Demo LIVE)"
     p.font.size = Pt(10.5)
     p.font.bold = True
     p.font.color.rgb = ACCENT_CYAN
@@ -485,7 +485,7 @@ def build_deck(output_path):
 
     # Bottom action in mockup
     p = tf_mk.add_paragraph()
-    p.text = "⚡ ACCIÓN INMEDIATA: [ BLOQUEAR PLÁSTICO PROACTIVAMENTE ]"
+    p.text = "ACCIÓN INMEDIATA: [ BLOQUEAR PLÁSTICO PROACTIVAMENTE ]"
     p.font.size = Pt(10)
     p.font.bold = True
     p.font.color.rgb = ACCENT_GREEN
@@ -664,7 +664,7 @@ def build_deck(output_path):
     ]
     for chk_h, chk_d in chk_items:
         p = tf_ck.add_paragraph()
-        p.text = "✔ " + chk_h + " " + chk_d
+        p.text = "" + chk_h + " " + chk_d
         p.font.size = Pt(9.5)
         p.font.color.rgb = TEXT_MUTED
         p.space_before = Pt(8)
@@ -836,7 +836,7 @@ def build_deck(output_path):
         p.space_before = Pt(10)
 
     p = tf_b.add_paragraph()
-    p.text = "✔ Curso: Negocios desde la Ingeniería · Profesor: Manuel Guzmán Tello · 2024"
+    p.text = "Curso: Negocios desde la Ingeniería · Profesor: Manuel Guzmán Tello · 2024"
     p.font.size = Pt(10.5)
     p.font.bold = True
     p.font.color.rgb = ACCENT_GREEN
@@ -847,6 +847,6 @@ def build_deck(output_path):
     print(f"Presentation saved successfully at: {output_path}")
 
 if __name__ == "__main__":
-    out_dir = r"c:\Users\Hp\Downloads\shield"
-    out_file = os.path.join(out_dir, "ShieldGuard_AI_Presentacion_Ejecutiva.pptx")
+    out_dir = os.path.dirname(os.path.abspath(__file__))
+    out_file = os.path.join(out_dir, "Cautelis IA - Presentación Ejecutiva.pptx")
     build_deck(out_file)
